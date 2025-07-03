@@ -1,0 +1,263 @@
+/* Main sidebar container */
+.sidebar {
+  width: 250px;
+  min-width: 175px; /* Minimum width when not collapsed */
+  background-color: #f5f5f5;
+  border-right: 1px solid #ddd;
+  padding: 2% 16px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: width 0.3s ease, transform 0.3s ease; /* Smooth transition for collapse/expand */
+}
+
+/* Sidebar when collapsed */
+.sidebar.collapsed {
+  transform: translateX(-100%); /* Hide sidebar off-screen */
+  width: 0;
+  min-width: 0;
+  padding: 0;
+  border: none;
+}
+
+/* Toggle button inside sidebar */
+.sidebar .toggle-button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  color: #ddd;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Toggle button hover effect */
+.sidebar .toggle-button:hover {
+  color: #db021b;
+}
+
+/* Toggle button style when sidebar is collapsed (not used)*/
+.sidebar.collapsed .toggle-button {
+  margin: 12px;
+  padding: 8px;
+}
+
+/* Hide all elements except toggle button when collapsed (not used)*/
+.sidebar.collapsed ul,
+.sidebar.collapsed button:not(.toggle-button) {
+  display: none;
+}
+
+/* General sidebar button style */
+.sidebar button {
+  padding: 10px 16px;
+  margin-bottom: 16px;
+  background-color: #28a1d7;
+  color: #ffffff;
+  border: none;
+  border-radius: 10%;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Sidebar list container */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: none;
+  overflow-y: auto;
+}
+
+/* Sidebar list item */
+.sidebar li {
+  margin-bottom: 8px;
+}
+
+/* Active chat list item */
+.sidebar li.active {
+  background-color: #ddd;
+  border-radius: 4px;
+}
+
+/* Button inside chat list item */
+.sidebar li button {
+  background: none;
+  border: none;
+  color: #28a1d7;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: left;
+  width: auto;
+  margin: 0 !important;
+}
+
+/* Chat item container */
+.chat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 0;
+}
+
+/* Chat name text */
+.chat-name {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0 5px 8px 5px;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* Container for chat action buttons (edit, delete, archive) */
+.chat-actions {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+/* Generic icon button (edit, delete, archive) */
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  max-height: 30px;
+  max-width: 43px;
+}
+
+/* Edit button icon */
+.icon-button .editbtn {
+  font-size: 16px;
+  color: #888;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+/* Edit button hover effect */
+.icon-button .editbtn:hover {
+  color: #28a1d7;
+}
+
+/* Delete (trash) button icon */
+.icon-button .trashbtn {
+  font-size: 16px;
+  color: #888;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+/* Archive button icon */
+.icon-button .archbtn {
+  font-size: 16px;
+  color: #888;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+/* Archive button hover effect */
+.icon-button .archbtn:hover {
+  color: #000;
+}
+
+/* Trash button hover effect */
+.icon-button .trashbtn:hover {
+  color: #db021b;
+}
+
+/* Sidebar header (top section) */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* New chat button style */
+.sidebar .new-chat-button {
+  background-color: #28a1d7;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 8px 16px;
+  transition: background-color 0.3s ease;
+}
+
+/* New chat button hover effect */
+.sidebar .new-chat-button:hover {
+  background-color: #1e88b0;
+}
+
+/* Toggle button (duplicate) */
+.toggle-button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Input for editing chat name */
+.edit-chat-input {
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Edit chat input focus effect */
+.edit-chat-input:focus {
+  border-color: #28a1d7;
+  box-shadow: 0 0 4px rgba(40, 161, 215, 0.5);
+}
+
+/* Placeholder style for edit chat input */
+.edit-chat-input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Title for archived section */
+.archived-title {
+  margin: 12px 0;
+}
+
+/* Prevent horizontal overflow in sidebar and its children */
+.sidebar,
+.sidebar-content,
+.active-chats,
+.archived-section,
+.archived-chats,
+.sidebar ul,
+.sidebar li,
+.chat-item,
+.chat-actions {
+  overflow-x: hidden !important;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Hide scrollbars in sidebar content */
+.sidebar-content {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.sidebar-content::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
